@@ -1,0 +1,20 @@
+export type ProfileStackParamList = {
+  profile_screen: undefined;
+  auth_screen: undefined;
+  my_profile_screen: undefined;
+  my_orders_screen: undefined;
+  order_detail_screen: {orderId: string};
+  my_notifications_screen: undefined;
+  my_addresses_screen: undefined;
+  my_invoice_addresses_screen: undefined;
+  cancel_or_return_claims_screen: undefined;
+  my_proposals_screen: undefined;
+  questions_and_answers_screen: undefined;
+  my_comments_screen: undefined;
+  my_favourites_screen: undefined;
+  my_coins_screen: undefined;
+  my_price_alarms_screen: undefined;
+  about_us_screen: undefined;
+  special_for_acrobats_screen: undefined;
+  contact_us_screen: undefined;
+};

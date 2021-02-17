@@ -1,0 +1,101 @@
+import {Dimensions, StyleSheet} from 'react-native';
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  textInputContainer: {
+    padding: 10,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 999999,
+  },
+  textInput: {
+    backgroundColor: '#EFEFEF',
+    paddingHorizontal: 10,
+    paddingVertical: 13,
+    marginTop: 15,
+    fontFamily: 'Quicksand-Light',
+    flexGrow: 1,
+    borderRadius: 13,
+    width: '100%',
+  },
+  filteringSortingContainer: {
+    height: 55,
+    backgroundColor: 'white',
+    width: '100%',
+    flexDirection: 'row',
+    zIndex: 999999,
+  },
+  sortingTouchable: {
+    width: '50%',
+    borderColor: '#eeeeee',
+    borderBottomWidth: 1,
+    borderRightWidth: 1,
+    height: '100%',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  sortingText: {
+    fontFamily: 'Quicksand-Regular',
+    color: '#484848',
+    fontSize: 16,
+    paddingLeft: 15,
+  },
+  filteringTouchable: {
+    width: '50%',
+    borderColor: '#eeeeee',
+    borderBottomWidth: 1,
+    borderLeftWidth: 0,
+    height: '100%',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  filteringText: {
+    fontFamily: 'Quicksand-Regular',
+    color: '#484848',
+    fontSize: 16,
+    paddingLeft: 15,
+  },
+  activityIndicatorContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+    marginTop: 20,
+  },
+  bottomDivider: {
+    width: Dimensions.get('window').width,
+    height: 50,
+  },
+  carsiProductContainer: {
+    marginLeft: 4,
+    width: Dimensions.get('window').width / 2 - 7,
+    paddingLeft: 10,
+    marginTop: 5,
+  },
+  productImage: {
+    width: Dimensions.get('window').width / 2 - 40,
+    marginLeft: 20,
+  },
+  searchContainer: {
+    height: 40,
+    width: '100%',
+    backgroundColor: '#EFEFEF',
+    borderRadius: 15,
+    alignItems: 'center',
+    flexDirection: 'row',
+    marginHorizontal: 10,
+  },
+  searchIcon: {
+    marginLeft: 10,
+  },
+  searchText: {
+    marginLeft: 10,
+    fontFamily: 'Quicksand-Light',
+    color: '#BFBFBF',
+  },
+});
