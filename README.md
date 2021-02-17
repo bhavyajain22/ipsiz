@@ -1,2 +1,2 @@
 # ipsizcambaz
-ipsizcambaz homepage
+ipsizcambaz mobile app
