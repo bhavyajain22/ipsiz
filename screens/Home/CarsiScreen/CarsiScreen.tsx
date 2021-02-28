@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Animated} from 'react-native';
+import {View, Animated,Text,Image,TouchableOpacity,ScrollView, Dimensions} from 'react-native';
 import {styles} from './CarsiScreen.styles';
 import {StackHeaderProps, StackNavigationProp} from '@react-navigation/stack';
 import CategoryHorizontalScroll from '../../../components/CategoryHorizontalScroll/CategoryHorizontalScroll';
@@ -11,6 +11,7 @@ import BrandCategories from './BrandCategories/BrandCategories';
 import SlidersCarousel from './SlidersCarousel/SlidersCarousel';
 import BannersCarousel from './BannersCarousel/BannersCarousel';
 import WeeklyPromos from './WeeklyPromos/WeeklyPromos';
+import {getWeeklyPromos} from '../../../services/carsi.service';
 import PopularProducts from './PopularProducts/PopularProducts';
 import MostlyViewedProducts from './MostlyViewedProducts/MostlyViewedProducts';
 import PromoProducts from './PromoProducts/PromoProducts';
@@ -25,6 +26,14 @@ import {useCollapsibleHeader} from 'react-navigation-collapsible';
 import CustomHeaderSearch from '../../../navigation/CustomHeaderSearch/CustomHeaderSearch';
 import MidBannersCarousel from './MidBannersCarousel/MidBannersCarousel';
 import {globalStyles} from '../../../assets/globalStyles.styles';
+import MediumCardRegular from '../../../components/shared/MediumCardRegular/MediumCardRegular';
+import ThreeKampanyalarCards from '../../../components/shared/ThreeKampanyalarCards/ThreeKampanyalarCards';
+
+import BigCardRegular from '../../../components/shared/BigCardRegular/BigCardRegular';
+import BigCard from './BigCard/BigCard';
+import KampaCard from './Kampa/Kampa';
+import KacCards from './kacCards/KacCards';
+const{width, height} = Dimensions.get('screen')
 
 type HomeStackParamList = {
   carsi_screen: undefined;
@@ -60,7 +69,7 @@ const CarsiScreen: React.FC<StackNavigationProp<
   } = useCollapsibleHeader(options);
 
   return (
-    <>
+
       <View style={styles.mainContainer}>
         <Animated.ScrollView
           onScroll={onScroll}
@@ -77,7 +86,38 @@ const CarsiScreen: React.FC<StackNavigationProp<
           <View style={globalStyles.marginTopTen}>
             <CategoryHorizontalScroll />
           </View>
+
+          <BigCard/>
+          <BigCard/>
+          <BigCard/>
+          
+            {/* <View >
+              <TouchableOpacity style={styles.kampanyalarCards} >
+                <ThreeKampanyalarCards />
+                </TouchableOpacity>
+          </View> */}
           {/* HAFTANIN KACMAZLARI */}
+          <View style={styles.chipsMain}>
+            <Text style={styles.activateChip}>test1test</Text>
+            <Text style={styles.disableChip}>test1</Text>
+            <Text style={styles.disableChip}>test1</Text>
+            <Text style={styles.disableChip}>test1 test1</Text>
+          </View>
+
+          <View style={styles.threeCards}>
+            <TouchableOpacity >
+              <Image resizeMode='contain' style={styles.threeSmallCard} source={require('../../../assets/images/threeCard.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity >
+              <Image resizeMode='contain' style={styles.threeSmallCard} source={require('../../../assets/images/threeCard.png')} />
+            </TouchableOpacity>           
+            <TouchableOpacity >
+              <Image resizeMode='contain' style={styles.threeSmallCard} source={require('../../../assets/images/threeCard.png')} />
+            </TouchableOpacity>
+          </View>
+          <KampaCard/>
+          <KampaCard/>
+          <KampaCard/>
           <View style={globalStyles.marginTopTen}>
               <View style={styles.cardHeaderContainer}>
                 <HeaderTypo
@@ -86,6 +126,38 @@ const CarsiScreen: React.FC<StackNavigationProp<
                 />
               </View>
               <WeeklyPromos />
+          </View>
+
+          <View style={styles.chipsMain}>
+            <Text style={styles.activateChip}>test1test</Text>
+            <Text style={styles.disableChip}>test1</Text>
+            <Text style={styles.disableChip}>test1</Text>
+            <Text style={styles.disableChip}>test1 test1</Text>
+          </View>
+          {/*Cok card*/}
+          <View style={{ borderColor:'#c7c7c7',backgroundColor:'white', flex:1,flexDirection:'row', justifyContent:'space-evenly'}}>
+            <View style={{flex:0.355, alignSelf:'flex-start'}}>
+              <Image  resizeMode='contain' style={{width:141, height:213}} source={require('../../../assets/images/phone.png')} />
+            </View>
+            <View style={{flex:0.3, backgroundColor:'white',alignItems:'center', flexDirection:'column', borderRadius:12,borderColor:'#E6E6E6',borderWidth:2}}>
+              <Text style={{fontFamily:'Quicksand-Light',fontSize:14, textAlign:'center'}} >Masaüstü Bilgisayar</Text>
+              <Image  resizeMode='contain' style={{width:108,height:134, marginTop:10}} source={require('../../../assets/images/locker.png')}></Image>
+              <Text style={{fontSize:10,fontFamily:'Quicksand-Light', color:'#35b257', textAlign:'center',position:'absolute',marginTop:170}}>En Uygun{'\n'} Fiyatlarla!</Text>
+            </View>
+            <View style={{flex:0.3, backgroundColor:'white',alignItems:'center', flexDirection:'column', borderRadius:7,borderColor:'#E6E6E6',borderWidth:2}}>
+            <Text style={{fontFamily:'Quicksand-Light',fontSize:14, textAlign:'center'}} >Fotoğraf & Kamera</Text>
+              <Image  resizeMode='contain' style={{width:108,height:134, marginTop:10}} source={require('../../../assets/images/camera.png')}></Image>
+              <Text style={{fontSize:10,fontFamily:'Quicksand-Light', color:'#35b257', textAlign:'center', marginTop:170,position:'absolute'}}>En Uygun {'\n'} Fiyatlarla!</Text>
+
+            </View>
+          </View>
+          <View style={{flexDirection:'row'}}>
+          <KacCards/>
+          <KacCards/>
+          </View>
+          <View style={{flexDirection:'row'}}>
+          <KacCards/>
+          <KacCards/>
           </View>
           {/* BANNERS CAROUSEL */}
           <View style={styles.secondCarouselContainer}>
@@ -101,6 +173,7 @@ const CarsiScreen: React.FC<StackNavigationProp<
                   text="Popüler Ürünler"
                 />
               </View>
+              <Text>asdasd</Text>
               <PopularProducts />
             </SideCard>
           </View>
@@ -170,10 +243,21 @@ const CarsiScreen: React.FC<StackNavigationProp<
               <BrandCategories />
             </SideCard>
           </View>
+          {/*}	
+          <View style ={styles.twoCards}>
+            <TouchableOpacity ><MediumCardRegular/></TouchableOpacity>
+            <TouchableOpacity><MediumCardRegular/></TouchableOpacity>
+        </View>*/}
+
+            <View style={styles.scrollCard}>
+            <TouchableOpacity >
+              <Image resizeMode='contain' style = {styles.singleCard} source={require('../../../assets/images/laptop.png')}/>
+            </TouchableOpacity>
+          </View>
           <BottomDivider />
         </Animated.ScrollView>
       </View>
-    </>
+    
   );
 };
 
